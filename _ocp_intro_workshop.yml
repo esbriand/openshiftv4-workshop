@@ -1,0 +1,17 @@
+id: "intro-ocp4"
+name: "Introduction to OpenShift 4 Workshop"
+
+content:
+  url: https://raw.githubusercontent.com/esbriand/openshiftv4-workshop/ocp4.2
+  
+modules:
+  activate:
+  - 0-setting-up-client-tools
+  - 01-verify-connectivity
+  - 02-create-app-from-container-image
+  - 03-deploy-java-app
+  - 04-deploy-dotnet-app
+  - 05-adding-database-to-springboot-app
+  - 06-cicd-short
+  - 07-using-codeready
+  - 48-build-container-image

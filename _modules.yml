@@ -1,23 +1,24 @@
 config:
+  renderer: asciidoc
   vars:
     - name: DEFAULT_PASSWORD
       desc: Default password for users in the environment
       value: openshift4
     - name: VERSION
       desc: Version is used
-      value: 4.2.2
+      value: 4.2.13
     - name: CONSOLE_ADDRESS
       desc: HTTP address of the OpenShift console
-      value: https://console-openshift-console.apps.cluster-8f8a.sandbox1118.opentlc.com/
+      value: http://console-openshift-console.apps.cluster-sof-cec9.sof-cec9.example.opentlc.com
     - name: APPS_ADDRESS
       desc: HTTP address suffix of apps deployed on OpenShift
-      value: apps.cluster-8f8a.sandbox1118.opentlc.com/
+      value: apps.cluster-sof-cec9.sof-cec9.example.opentlc.com/
     - name: GET_STARTED_CLI_URL
       desc: URL to documentation to configure CLI
       value: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/
     - name: API_URL
       desc: URL to API server
-      value: https://api.cluster-8f8a.sandbox1118.opentlc.com:6443
+      value: https://api.cluster-sof-cec9.sof-cec9.example.opentlc.com:6443
     - name: REDHAT_DOWNLOAD_OC_PORTAL_URL
       desc: URL for Red Hat portal oc binary download
       value: https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/
@@ -34,8 +35,10 @@ modules:
   04-deploy-dotnet-app:
     name: Deploy a .Net core Application
   05-adding-database-to-springboot-app:
-    name: Configmap vs Env variables
+    name: Deploy a Database
   06-cicd-short:
     name: Create a Pipeline
   07-using-codeready:
     name: CodeReady Workspace
+  48-build-container-image:
+    name: Build a Container Image
