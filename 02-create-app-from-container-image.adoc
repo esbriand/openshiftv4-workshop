@@ -20,7 +20,7 @@ image::dev-project.png[image]
 
 - Enter *web-terminal-Username* as name of the project. The display name and description is optional.
 
-image::create-project.png[image]
+image::create-terminal-project.png[image]
 
 
 === Deploy an Image

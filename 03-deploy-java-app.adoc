@@ -18,7 +18,7 @@ image::dev-project.png[image]
 
 - Enter *pets-Username* as name of the project. The display name and description is optional.
 
-image::create-project.png[image]
+image::create-spring-project.png[image]
 
 === Developer Persona
 
