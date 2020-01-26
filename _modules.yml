@@ -35,7 +35,7 @@ modules:
   04-deploy-dotnet-app:
     name: Deploy a .Net core Application
   05-adding-database-to-springboot-app:
-    name: Deploy a Database
+    name: Deploy a Spring Boot Application with Database
   06-cicd-short:
     name: Create a Pipeline
   07-using-codeready:

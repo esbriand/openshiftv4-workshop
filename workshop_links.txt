@@ -1,0 +1,14 @@
+# Workshop Links
+
+Openshift Master Console: http://console-openshift-console.apps.cluster-sof-cec9.sof-cec9.example.opentlc.com
+
+Openshift API for command line 'oc' client: https://api.cluster-sof-cec9.sof-cec9.example.opentlc.com:6443
+
+Instructions: http://intro4workshop-default.apps.cluster-sof-cec9.sof-cec9.example.opentlc.com
+
+Admin User/Password:
+opentlc-mgr
+r3dh4t1!
+
+Users: user1 - user25
+Password: openshift

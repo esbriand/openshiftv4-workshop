@@ -5,7 +5,7 @@ In this exercise we will learn how to create a .Net application using source
 code and the .Net builder image.
 
 === Create Project
-IMPORTANT: Please replace *Username* with your username
+IMPORTANT: Please replace *<Username>* with your username
 
 - login to web UI via {{CONSOLE_ADDRESS}}
 - Use the same username and password that assigned to you
@@ -15,7 +15,7 @@ IMPORTANT: Please replace *Username* with your username
 
 image::dev-project.png[image]
 
-- Enter *dotnet-Username* as name of the project. The display name and description is optional.
+- Enter *dotnet-<Username>* as name of the project. The display name and description is optional.
 
 image::create-dotnet-project.png[image]
 

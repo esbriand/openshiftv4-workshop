@@ -8,7 +8,7 @@ how to create an application from an existing docker image using Web UI.
 
 === Add a new project
 
-IMPORTANT: Please replace *Username* with your username
+IMPORTANT: Please replace *<Username>* with your username
 
 - login to web UI via {{CONSOLE_ADDRESS}}
 - Use the same username and password that assigned to you
@@ -18,7 +18,7 @@ IMPORTANT: Please replace *Username* with your username
 
 image::dev-project.png[image]
 
-- Enter *web-terminal-Username* as name of the project. The display name and description is optional.
+- Enter *web-terminal-<Username>* as name of the project. The display name and description is optional.
 
 image::create-terminal-project.png[image]
 

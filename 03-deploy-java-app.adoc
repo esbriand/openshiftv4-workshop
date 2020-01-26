@@ -6,7 +6,7 @@
 In this exercise we will deploy a Java application
 
 === Create Project
-IMPORTANT: Please replace *Username* with your username
+IMPORTANT: Please replace *<Username>* with your username
 
 - login to web UI via {{CONSOLE_ADDRESS}}
 - Use the same username and password that assigned to you
@@ -16,9 +16,9 @@ IMPORTANT: Please replace *Username* with your username
 
 image::dev-project.png[image]
 
-- Enter *spring-Username* as name of the project. The display name and description is optional.
+- Enter *java-<Username>* as name of the project. The display name and description is optional.
 
-image::create-spring-project.png[image]
+image::create-java-project.png[image]
 
 === Developer Persona
 
@@ -35,47 +35,63 @@ image::openjdk.png[image]
 - Click `Instantiate Template`
 - Enter the following:
 
-  * Name: petclinic
-  * Git Repository URL: https://github.com/spring-projects/spring-petclinic.git
-  * Context Directory: [Make sure it is empty]
+  * Namespace: `java-<Username>` (This is the project you created above)
+  * Name: `petclinic`
+  * Git Repository URL: `https://github.com/spring-projects/spring-petclinic.git`
+  * Context Directory: *[Make sure it is empty]*
 
 image::deploy-java.png[image]
 
 - Click `Create`
 - Navigate to `Builds`
 - Click onto the buildconfig `petclinic`
-- Click 'Builds' tab
-- Click 'petclinic-1'
+- Click `Builds` tab
+- Click `petclinic-1`
 - Click `Logs` to view the build logs
 
-
-
-- Navigate `Builds` --> `Builds`
-- Click `petclinic-1`
-- Click `Logs`
 - Wait for the following from the log
-
 ```
-Pushing image image-registry.openshift-image-registry.svc:5000/testme2/petclinic:latest ...
+Pushing image image-registry.openshift-image-registry.svc:5000/java-user1/petclinic:latest ...
 Getting image source signatures
-Copying blob sha256:038b3dff993dc48f9a8b616ddb0e5a05bca1ab44787d8006ce82c5f2b2018e12
-Copying blob sha256:76608b6b9d54251299c5d3be69fdf53e05f97a3735bbcd5889c30ebb78608428
-Copying blob sha256:f4e561752acba40ba739e700e3b3277b8fe23eee951a5d2dfde7e7e762a3d156
-Copying blob sha256:3c81a5d20855a6cef8b997d709410e047e2839b5ad113f4c34d25e9fae9e3beb
-Copying config sha256:f2c1a1fb1c992cfa18d70a6276a5e90e67906b920979b7aeab0c22b64791274e
+Copying blob sha256:190f8d930a725dc0a1476346b64c47a785196bffbb486103f32630e623a8f024
+Copying blob sha256:305d73a95c8fece2b53a34e040df1c97eb6b7f7cc4e0a7933465f0b7325e3d72
+Copying blob sha256:38445d7aa2f471c91841137964473752cfd05f515c86ffb35995ca09920711f9
+Copying blob sha256:00f17e0b37b0515380a4aece3cb72086c0356fc780ef4526f75476bea36a2c8b
+Copying config sha256:310ef15689d32879adee5f87ecb6d1b9eb7b8705462065e051f5ffd63dbafc37
 Writing manifest to image destination
 Storing signatures
-Successfully pushed //image-registry.openshift-image-registry.svc:5000/testme2/petclinic:latest@sha256:49a1758bfc58cd4815a705575fc6e0cf271c264ae8327018e8a03412e44cc9c1
+Successfully pushed image-registry.openshift-image-registry.svc:5000/java-user1/petclinic@sha256:c7eaa3dd319635d255809bb0efd00e9060eb9e2ed563053652e083d657e91c1b
 Push successful
 ```
+
 - Navigate to `Topology`
 - Click onto route link from the petinic icon
 
 image::route-link.png[image]
 
-- Application is shown as this
+- The application should load in your browser as shown below.
 
 image::javaapp.png[image]
+
+- It may take a minute for the pod to start.
+- The pod log can be accessed by selecting the petclinic Deployment Configuration
+
+image::select-petclinic-dc.png[image]
+
+- Then select `View Logs` in for the petclinic pod.
+
+image::petclinic-dc.png[image]
+
+- You should see the following lines in the log indicating the application has started.
+
+```
+2020-01-26 17:04:08.840  INFO 1 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-01-26 17:04:11.631  WARN 1 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-01-26 17:04:12.328  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-01-26 17:04:16.830  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/manage'
+2020-01-26 17:04:17.132  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-26 17:04:17.134  INFO 1 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 33.708 seconds (JVM running for 37.097)
+```
 
 Congratulations!! You are now running a Java application on
 OpenShift.
