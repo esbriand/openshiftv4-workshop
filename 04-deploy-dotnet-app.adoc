@@ -15,9 +15,9 @@ IMPORTANT: Please replace *Username* with your username
 
 image::dev-project.png[image]
 
-- Enter *mydotnetapp-Username* as name of the project. The display name and description is optional.
+- Enter *dotnet-Username* as name of the project. The display name and description is optional.
 
-image::create-project.png[image]
+image::create-dotnet-project.png[image]
 
 === Developer Persona
 

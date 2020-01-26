@@ -16,7 +16,7 @@ IMPORTANT: Please replace *Username* with your username
 
 image::dev-project.png[image]
 
-- Enter *pets-Username* as name of the project. The display name and description is optional.
+- Enter *spring-Username* as name of the project. The display name and description is optional.
 
 image::create-spring-project.png[image]
 
@@ -37,7 +37,7 @@ image::openjdk.png[image]
 
   * Name: petclinic
   * Git Repository URL: https://github.com/spring-projects/spring-petclinic.git
-  * Context Directory: [leave it as empty]
+  * Context Directory: [Make sure it is empty]
 
 image::deploy-java.png[image]
 
