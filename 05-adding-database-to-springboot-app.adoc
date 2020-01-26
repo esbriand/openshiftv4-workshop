@@ -52,7 +52,13 @@ IMPORTANT: Please replace *userxx* with the username assigned to you in
 the commands below.
 
 Make sure you are in the `spring-userxx` project where your springboot
-application is running. Click on `Add to project` on your webconsole,
+application is running. 
+
+- Click `+Add` on the left menu
+- Click onto `Database`
+
+image::database.png[image]
+
 select `MySQL Ephemeral` from the catalog and deploy it.
 
 image::mysql.png[image]
@@ -63,8 +69,7 @@ When you are deploying this database you will have to choose the following value
 *MySQL Connection Password:* password +
 *MySQL Database Name:* sampledb
 
-_Feel free to use your own values, but make a note of the same_ (write
-down..we will need these)
+_Feel free to use your own values, but make a note of the values_ (You will need them in step 2)
 
 Click on the `Create` button and within a few min or two your MySQL
 database pod should be up and running.
