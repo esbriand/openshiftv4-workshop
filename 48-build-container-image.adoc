@@ -39,21 +39,21 @@ unauthenticated registry while it is still available.
 
 === Create a project
 
-IMPORTANT: Please replace *Username* with your username. It should be all lowercase and no spaces.
+IMPORTANT: Please replace *<Username>* with your username. It should be all lowercase and no spaces.
 
 - login to web UI via {{CONSOLE_ADDRESS}}
 - Use the same username and password that assigned to you
 - On the left-hand side menu, select `Home` and then select `Project`
 - Click `Create Project`
-- Enter *buildimage-Username* as `Name` of the project. The display name and description is optional.
+- Enter *buildimage-<Username>* as `Name` of the project. The display name and description is optional.
 
-image::create-project.png[image]
+image::create-buildimage-project.png[image]
 
 - Click `Create`
 
 - Alternatively, you can run this command below via CLI.
 ....
-$ oc new-project buildimage-Username
+$ oc new-project buildimage-<Username>
 ....
 
 === Create an application that uses Dockerfile
@@ -94,7 +94,7 @@ NOTE: If you are using the web terminal, you will have to create a file with the
 same content of the secret file in your web terminal.
 
 ....
-$ oc project buildimage-Username
+$ oc project buildimage-<Username>
 $ oc create -f my-service-account-pull-secret.yaml
 ....
 
@@ -215,6 +215,7 @@ Hello, world!
 </html>
 ....
 
+Alternatively you can paste url in a browser and you will receive the same result.
 
 Congratulations!! In this exercise you have learnt how to create, build
 and deploy an application using OpenShift's "Build Container strategy".

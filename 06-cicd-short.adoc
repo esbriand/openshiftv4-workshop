@@ -8,11 +8,9 @@ pipeline will be setup using Jenkins running as an application pod on
 OpenShift. The pipeline running on Jenkins will trigger builds and
 deployments on OpenShift.
 
-
 === Create a new project
 
-=== Create Project
-IMPORTANT: Please replace *Username* with your username
+IMPORTANT: Please replace *<Username>* with your username
 
 - login to web UI via {{CONSOLE_ADDRESS}}
 - Use the same username and password that assigned to you
@@ -22,30 +20,15 @@ IMPORTANT: Please replace *Username* with your username
 
 image::dev-project.png[image]
 
-- Enter *pipeline-Username* as name of the project. The display name and description is optional.
+- Enter *pipeline-<Username>* as name of the project. The display name and description is optional.
 
-image::create-project.png[image]
+image::create-pipeline-project.png[image]
 
 - Alternatively, you can run this command below via CLI.
 
 === Deploy your CI/CD tool (Jenkins)
 
 - Login to the cluster via {{API_URL}}
-
-```
-[~]$ oc login {{API_URL}}
-The server uses a certificate signed by an unknown authority.
-You can bypass the certificate check, but any data you send to the server could be intercepted
-by others.
-Use insecure connections? (y/n): y
-
-Authentication required for {{API_URL}} (openshift)
-Username: user1
-Password:
-Login successful.
-```
-
-== Deploy OOTB Jenkins
 
 - Navigate to `+Add`
 - Click on `From Catalog`
@@ -62,7 +45,7 @@ image::pick-templates.png[image]
 - Take the default values and click `Create`
 - Navigate to `Topology`
 - Click onto the middle of the Jenkins icon to see the details
-- Wait for the solid blue ring shows on the icon
+- Wait for the solid blue ring shows on the icon (This may take 4-5 minutes. Coffee?)
 - Click onto the route link to go to Jenkins Console
 
 image::route-link.png[image]
@@ -85,22 +68,22 @@ image::jenkins.png[image]
 - Create pipeline via web terminal
 
 [source,shell]
-----
-
-[~]$ oc project pipeline-userx
+....
+[~]$ oc login https://api.cluster-sof-cec9.sof-cec9.example.opentlc.com:6443
+[~]$ oc project pipeline-<Username>
 [~]$ oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/jenkins/pipeline/nodejs-sample-pipeline.yaml
 
 buildconfig.build.openshift.io/nodejs-sample-pipeline created
-----
+....
 
 - Grant permissions to jenkins sevice account for access to the project.
 
-```
-[~] $ oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:pipeline-Username:jenkins -n pipeline-Username
-clusterrole.rbac.authorization.k8s.io/admin added: "system:serviceaccount:pipeline-Username:jenkins"
-```
-NOTE:
-NOTE: *pipeline-Username* will be replaced to your project name
+....
+[~] $ oc adm policy add-cluster-role-to-user cluster-admin system:serviceaccount:pipeline-<Username>:jenkins -n pipeline-<Username>
+clusterrole.rbac.authorization.k8s.io/admin added: "system:serviceaccount:pipeline-<Username>:jenkins"
+....
+NOTE: If the command indicates *forbidden*, contact the instructor to run it due to permission issues.
+NOTE: *pipeline-<Username>* will be replaced to your project name
 
 - Go back to your web console {{CONSOLE_ADDRESS}}
 - Navigate to `Build` --> `Build Configs`
@@ -124,7 +107,8 @@ image::blue-ocean.png[image]
 
 image::pipeline-build.png[image]
 
-- When Pipleline build is completed, navigate `Network` --> `Route`
+- When Pipleline build is completed switch to `Developer` persona
+- Navigate `Network` --> `Route`
 - Click onto the link under `LOCATION` for `nodejs-mongodb-example`
 
 image::pipeline-result.png[image]

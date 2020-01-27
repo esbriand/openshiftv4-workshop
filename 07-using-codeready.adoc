@@ -3,7 +3,8 @@
 
 == OpenShift 4 as a Developer
 
-In this lab, we're aiming to get you familiar with Red Hat CodeReady Workspaces.
+In this lab, we're aiming to get you familiar with Red Hat CodeReady Workspaces. 
+You will need to be an Operator Administrator to complete the lab properly
 
 === Deploying CodeReady Workspace
 
@@ -11,18 +12,23 @@ CodeReady is Red Hat's browser-based intelligent developer IDE. We'll use the
 CodeReady operator to deploy CodeReady so that we can use it in our project
 to develop our apps.
 
-IMPORTANT: Please replace *Username* with your username
+IMPORTANT: Please replace *<Username>* with your username
 
-- Create a new project `codeready-Username`
-- As an Operator administrator, run this command before proceeding:
+- Create a new project `codeready-<Username>`
 
-```
+
+- Execute the As an Operator administrator to complete the following steps:
+
+....
 oc create clusterrole codeready-operator --resource=oauthclients --verb=get,create,delete,update,list,watch
-oc create clusterrolebinding codeready-operator --clusterrole=codeready-operator --serviceaccount=codeready-Username:codeready-operator
+oc create clusterrolebinding codeready-operator --clusterrole=codeready-operator --serviceaccount=codeready-<Username>:codeready-operator
+....
 
-```
+NOTE: If the command indicates *forbidden*, contact the instructor to run it due to permission issues.
 
-- Navigate to Catalog -> OperatorHub
+- Switch to `Administrator` persona
+- Ensure that you have codeready-<Username> selected as the current project.
+- Select `Operator Hub` under `Operators`
 - Enter `CodeReady` in the search field
 
 image::codeready-operator.png[image]
@@ -39,7 +45,7 @@ image::codeready-subscription.png[image]
 image::codeready-installed.png[image]
 
 - Click onto `Red Hat CodeReady Workspace`
-- Click `Create New`
+- Click `Create Instance`
 - Add the specific `postgresImage` under `database` as shown below
 
 ```
@@ -90,21 +96,21 @@ image::codereadyworkspace.png[image]
 
 image::codeready-register.png[image]
 
-- Enter the following information:
-   * First name: Devday
-   * Last name: User01
-   * Email: any_email@devday.com
-   * Username: *Username*
-   * Password: openshift4
+IMPORTANT: Please replace *<Username>* with your username
 
-IMPORTANT: Please replace *Username* with your username
+- Enter the following information:
+   * First name: workshop
+   * Last name: *<Username>*
+   * Email: any_email@workshop.com
+   * Username: *<Username>*
+   * Password: openshift
 
 - Click `Register`
 - Will be prompt to create new workspace
 
 image::codeready-createws.png[image]
 
-- Enter `springboot-Username` as the name of the Workspace
+- Enter `springboot-<Username>` as the name of the Workspace
 - Select `springboot` from the list of stacks
 
 image::codeready-git.png[image]
